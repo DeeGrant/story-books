@@ -4,7 +4,9 @@ const morgan = require('morgan')
 const exphbs = require('express-handlebars')
 const connectDB = require('./config/db')
 
-dotenv.config({path: 'config/.env'})
+if (process.env.NODE_ENV === 'development') {
+    dotenv.config({path: 'config/.env'})
+}
 
 connectDB()
 
