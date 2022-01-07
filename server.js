@@ -6,6 +6,8 @@ const connectDB = require('./config/db')
 
 if (process.env.NODE_ENV === 'development') {
     dotenv.config({path: 'config/.env'})
+} else {
+    dotenv.config()
 }
 
 connectDB()
