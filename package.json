@@ -4,7 +4,7 @@
   "description": "follows the [tutorial](https://www.youtube.com/watch?v=SBvmnHTQIPY) by [Traversy Media](https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA).",
   "main": "server.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node server.js",
+    "start": "node server.js",
     "dev": "cross-env NODE_ENV=development nodemon server.js"
   },
   "repository": {
