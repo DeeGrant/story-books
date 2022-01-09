@@ -9,9 +9,4 @@ follows the [tutorial](https://www.youtube.com/watch?v=SBvmnHTQIPY) by [Traversy
 
 ### TODO
 
-- MemoryStore Memory Leak?
-  - [1](https://github.com/jaredhanson/passport/issues/134)
-  - [2](https://github.com/expressjs/session/blob/master/README.md#compatible-session-stores)
-- Persist Session
-- Revert to connect-mongo 3?
 - Finish app
