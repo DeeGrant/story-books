@@ -17,10 +17,28 @@ router.post('/', ensureAuth, async (req, res) => {
         await Story.create(req.body)
         res.redirect('/dashboard')
     } catch (e) {
-        console.log(e)
+        console.error(e)
         res.render('error/500')
     }
     res.render('stories/add')
+})
+
+// @desc   Show all stories
+// @route  GET /stories
+router.get('/', ensureAuth, async (req, res) => {
+    try {
+        const stories = await Story.find({status: 'public'})
+            .populate('user')
+            .sort({createdAt: 'desc'})
+            .lean()
+            .exec()
+
+            res.render('stories/index', {stories})
+    } catch (e) {
+        console.error(e)
+        res.render('error/500')
+    }
+
 })
 
 module.exports = router
