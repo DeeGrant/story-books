@@ -38,7 +38,25 @@ router.get('/', ensureAuth, async (req, res) => {
         console.error(e)
         res.render('error/500')
     }
+})
 
+// @desc   Show edit page
+// @route  GET /stories/edit/:id
+router.get('/edit/:id', ensureAuth, async (req, res) => {
+    try {
+        const story = await Story.findOne({_id: req.params.id}).lean().exec()
+        if (!story) {
+            res.render('error/404')
+        }
+        if (story.user != req.user.id) { // comparing Symbols
+            res.render('stories')
+        } else {
+            res.render('stories/edit', {story})
+        }
+    } catch (e) {
+        console.error(e)
+        res.render('error/500')
+    }
 })
 
 module.exports = router
