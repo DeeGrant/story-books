@@ -18,8 +18,16 @@ function stripTags(input) {
     return input.replace(/<(?:.|\n)*?>/gm, ' ')
 }
 
+function editIcon(storyUser, loggedUser, storyId, floating = true) {
+    if (storyUser._id.toString() === loggedUser._id.toString()) {
+        return `<a href="/stories/edit/${storyId}" class="${floating ? 'btn-floating ': ''}halfway-fab blue"><i class="fas fa-edit fa-small"></i></a>`
+    }
+    return ''
+}
+
 module.exports = {
     formatDate,
     truncate,
-    stripTags
+    stripTags,
+    editIcon,
 }
