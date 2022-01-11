@@ -10,3 +10,4 @@ follows the [tutorial](https://www.youtube.com/watch?v=SBvmnHTQIPY) by [Traversy
 ### TODO
 
 - improve stripTags when multiple paragraphs
+- notify user of successful delete
