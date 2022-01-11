@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const dotenv = require('dotenv')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars')
+const methodOverride = require('method-override')
 const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
@@ -23,6 +24,13 @@ connectDB()
 const app = express()
 app.use(express.urlencoded({ extended: false}))
 app.use(express.json())
+app.use(methodOverride((req, res) => {
+    if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+        let method = req.body._method
+        delete req.body._method
+        return method
+    }
+}))
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'))
 }
