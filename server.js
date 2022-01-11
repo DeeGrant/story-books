@@ -8,7 +8,7 @@ const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/db')
-const { formatDate } = require('./helpers/hbs')
+const { formatDate, stripTags, truncate } = require('./helpers/hbs')
 
 if (process.env.NODE_ENV === 'development') {
     dotenv.config({path: 'config/.env'})
@@ -33,6 +33,8 @@ const config = {
     extname: '.hbs',
     helpers: {
         formatDate,
+        truncate,
+        stripTags,
     }
 }
 app.engine('.hbs', exphbs.engine(config))

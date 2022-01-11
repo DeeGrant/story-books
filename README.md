@@ -9,4 +9,4 @@ follows the [tutorial](https://www.youtube.com/watch?v=SBvmnHTQIPY) by [Traversy
 
 ### TODO
 
-- Finish app
+- improve stripTags when multiple paragraphs
