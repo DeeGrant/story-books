@@ -20,7 +20,9 @@ function stripTags(input) {
 
 function editIcon(storyUser, loggedUser, storyId, floating = true) {
     if (storyUser._id.toString() === loggedUser._id.toString()) {
-        return `<a href="/stories/edit/${storyId}" class="${floating ? 'btn-floating ': ''}halfway-fab blue"><i class="fas fa-edit fa-small"></i></a>`
+        const linkClass = floating ? ' class="btn-floating halfway-fab blue"': ''
+        const small = floating ? ' fa-small' : ''
+        return `<a href="/stories/edit/${storyId}"${linkClass}><i class="fas fa-edit${small}"></i></a>`
     }
     return ''
 }
