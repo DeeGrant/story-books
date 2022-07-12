@@ -14,14 +14,12 @@ router.get('/add', ensureAuth, (req, res) => {
 router.post('/', ensureAuth, async (req, res) => {
     try {
         req.body.user = req.user.id
-        console.log(req.body)
         await Story.create(req.body)
         res.redirect('/dashboard')
     } catch (e) {
         console.error(e)
         res.render('error/500')
     }
-    res.render('stories/add')
 })
 
 // @desc   Show all stories
